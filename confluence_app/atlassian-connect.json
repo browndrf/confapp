@@ -2,7 +2,7 @@
   "name": "Text Selector App",
   "description": "An app that allows users to select text from a page and add it to their homepage",
   "key": "text-selector-app",
-  "baseUrl": "ngrok http 3000",
+  "baseUrl": "https://github.com/browndrf/confapp/blob/main/confluence_app/atlassian-connect.json",
   "vendor": {
     "name": "Your Company",
     "url": "https://your-company.com"
