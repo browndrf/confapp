@@ -1,0 +1,58 @@
+{
+  "name": "Text Selector App",
+  "description": "An app that allows users to select text from a page and add it to their homepage",
+  "key": "text-selector-app",
+  "baseUrl": "ngrok http 3000",
+  "vendor": {
+    "name": "Your Company",
+    "url": "https://your-company.com"
+  },
+  "authentication": {
+    "type": "jwt"
+  },
+  "lifecycle": {
+    "installed": "/installed",
+    "uninstalled": "/uninstalled"
+  },
+  "scopes": [
+    "READ",
+    "WRITE"
+  ],
+  "modules": {
+    "webItems": [
+      {
+        "key": "text-selector-button",
+        "location": "system.content.action",
+        "name": {
+          "value": "Add to Homepage"
+        },
+        "url": "/text-selector?pageId={content.id}&spaceKey={space.key}",
+        "target": {
+          "type": "dialog",
+          "options": {
+            "width": "600px",
+            "height": "400px"
+          }
+        },
+        "context": "page",
+        "conditions": [
+          {
+            "condition": "user_is_logged_in"
+          }
+        ]
+      }
+    ],
+    "dialogs": [
+      {
+        "key": "text-selector-dialog",
+        "url": "/text-selector?pageId={content.id}&spaceKey={space.key}",
+        "options": {
+          "width": "600px",
+          "height": "400px",
+          "chrome": true
+        }
+      }
+    ]
+  },
+  "apiVersion": 1
+}
